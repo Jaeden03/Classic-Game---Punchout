@@ -1,0 +1,41 @@
+Initial wait time can also implement on the actual ai as an extension of enemy.
+
+
+
+Dodge attacks to get more energy. Energy is spent when taking damage or having attacks get blocked. If an attack is dodged, it does not consume energy.
+
+Player uppercut has a windup. This windup lasts longer than glass Joe's blow windup. Maybe something like ~1-1.5 seconds. If hit during this windup the uppercut is cancelled.
+
+Each action on both player and enemy calls an update function in the game manager. This function checks the enum states of both the player and the enemy to see what should happen
+
+Enemies can usually block low or high. Certain attacks will leave either the body or the head open. Can implement using enumerated type for low/high block. After a certain point, the block becomes none for the attack.
+
+Little Mac cannot act for a short time once he runs out of energy and goes red
+
+Left jab can hit while the opponent is doing a right uppercut. (uses eState.rJab)
+
+Right jab doesn't hit while the opponent is doing a right uppercut.
+
+Blocks blows (not jabs) during the windup for an uppercut. Does not block against blows after the actual attack is out, but the opponent is not stunned for very long.
+
+Windup for a blow is very brief but does not block player blows. It does block player jabs. Hitting a blow during the windup can reward the player with a star.
+
+When player counter hits during certain attacks, they have a chance to get a star for an uppercut. This star is subtracted if the player is hit before using it.
+
+During the punch part of Glass Joe's taunt punch, a blow will instantly knock him down. If the blow hits him early, it can instantly KO him. Otherwise he will get up. This taunt punch does not block player attacks.
+
+When guarding against a player attack, the block lasts for less than a second. Needs to be pinned down more.
+
+Certain attacks can be counter attacked to have various levels of stun. A jab while Joe does his uppercut has the most stun time. 
+
+Timer is stopped during Joe's taunt. Is also stopped when someone is in KO status.
+
+Player seems to attack faster when Joe is stunned after an attack
+~10 points for blow/jab. ~1000 points for knocking Joe down
+
+Stars in glass joe's fight:
+Random:
+	Counter his right hook with a left jab.
+	Counter his left blow with a body blow.
+Fixed:
+	punch him 20 times in the first 40 seconds of the fight.
